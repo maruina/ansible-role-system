@@ -1,4 +1,5 @@
 # Ansible Role: System 0.1
+[![Build Status](https://travis-ci.org/maruina/ansible-role-system.svg?branch=master)](https://travis-ci.org/maruina/ansible-role-system)  
 An Ansible role that configure properly your system.
 
 ## Download from Ansible Galaxy

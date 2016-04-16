@@ -1,0 +1,12 @@
+galaxy_info:
+  author: Matteo Ruina
+  description: Configure base system
+  license: MIT
+  min_ansible_version: 1.9
+  dependencies: []
+  platforms:
+  - name: Debian
+    versions:
+    - wheezy
+  galaxy_tags:
+    - devuan
