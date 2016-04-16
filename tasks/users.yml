@@ -1,9 +1,9 @@
 ---
 - name: Add groups
   group:
-    name: "{{ item.name | default(item) }}"
+    name: "{{ item.name }}"
     system: "{{ item.system | default('no') }}"
-  with_items: "{{users_groups}}"
+  with_items: "{{ system_groups }}"
 
 - name: Enforce removed groups
   group:
