@@ -5,7 +5,7 @@
     system: "{{ item.system | default('no') }}"
   with_items: "{{ system_groups }}"
 
-- name: Enforce removed groups
+- name: Enforce disabled groups are removed
   group:
     name: "{{ item }}"
     state: absent
@@ -27,14 +27,14 @@
       state: present
   with_items: "{{ system_users }}"
 
-- name: Ensure removed users
+- name: Ensure disabled users are removed
   user:
     name: "{{ item }}"
     state: absent
     remove: yes
   with_items: "{{ system_users_removed }}"
 
-- name: Add the user ssh keys
+- name: Add user ssh keys
   authorized_key:
     user: "{{ item.0.name }}"
     key: "{{item.1}}"
