@@ -14,9 +14,10 @@
     dest: "{{ system_fail2ban_conf_local_file }}"
     force: yes
     src: fail2ban/jail.local.j2
+  with_items: "{{ system_fail2ban_jails }}"
 
 - name: Start fail2ban
   service:
     name: "{{ system_fail2ban_service }}"
     state: started
-    required: yes
+    enabled: yes

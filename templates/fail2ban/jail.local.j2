@@ -1,13 +1,13 @@
 # {{ ansible_managed }}
 [DEFAULT]
-ignoreip = "{{ system_fail2ban_ignoreip }}"
-bantime  = "{{ system_fail2ban_bantime }}"
+ignoreip = {{ system_fail2ban_ignoreip.replace(" ", " = ") }}
+bantime  = {{ system_fail2ban_bantime }}
 
 # A host is banned if it has generated "maxretry" during the last "findtime"
 # seconds.
-findtime = "{{ system_fail2ban_findtime }}"
-maxretry = "{{ system_fail2ban_maxretry }}"
-backend = "{{ system_fail2ban_backend }}"
+findtime = {{ system_fail2ban_findtime }}
+maxretry = {{ system_fail2ban_maxretry }}
+backend = {{ system_fail2ban_backend }}
 usedns = warn
 
 destemail = root@localhost
@@ -58,7 +58,7 @@ action = %(action_)s
 # JAILS
 #
 
-{% for k, v in system_fail2ban_jails %}
-[{{ k }}]
-{{ v.replace(" ", " = ").replace("\"", "") }}
+[{{ item }}]
+{% for v in system_fail2ban_jails[item] %}
+{{ v.replace("\"", "").replace(" ", " = ") }}
 {% endfor %}
