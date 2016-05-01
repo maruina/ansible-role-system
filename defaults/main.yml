@@ -3,3 +3,20 @@ system_groups: []
 system_groups_removed: []
 system_users: []
 system_users_removed: []
+
+# fail2ban
+system_fail2ban_service: fail2ban
+system_fail2ban_conf_file: /etc/fail2ban/jail.conf
+system_fail2ban_conf_local_file: /etc/fail2ban/jail.local
+system_fail2ban_ignoreip: "127.0.0.1/8"
+system_fail2ban_bantime: 600
+system_fail2ban_findtime: 600
+system_fail2ban_maxretry: 3
+system_fail2ban_backend: "auto"
+system_fail2ban_jails:
+  ssh:
+    - enabled: "true"
+    - port: ssh
+    - filter: sshd
+    - logpath: /var/log/auth.log
+    - maxretry: "3"

@@ -1,0 +1,22 @@
+---
+- name: Install fail2ban
+  apt:
+    name: fail2ban
+    state: present
+
+- name: Remove fail2ban default configuration file
+  file:
+    path: "{{ system_fail2ban_conf_file }}"
+    state: absent
+
+- name: Copy fail2ban jail.local configuration
+  tamplate:
+    dest: "{{ system_fail2ban_conf_local_file }}"
+    force: yes
+    src: fail2ban/jail.local.j2
+
+- name: Start fail2ban
+  service:
+    name: "{{ system_fail2ban_service }}"
+    state: started
+    required: yes

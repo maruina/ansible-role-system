@@ -1,5 +1,18 @@
 ---
+- name: Update apt
+  apt:
+    cache_valid_time: 3600
+    update_cache: yes
+  tags:
+    - system
+
 - include: users.yml
   tags:
     - system
     - users
+
+- include: fail2ban.yml
+  tags:
+    - system
+    - fail2ban
+    - security
