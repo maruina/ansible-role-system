@@ -9,8 +9,8 @@
     path: "{{ system_fail2ban_conf_file }}"
     state: absent
 
-- name: Copy fail2ban jail.local configuration
-  tamplate:
+- name: Copy fail2ban jail configuration
+  template:
     dest: "{{ system_fail2ban_conf_local_file }}"
     force: yes
     src: fail2ban/jail.local.j2
