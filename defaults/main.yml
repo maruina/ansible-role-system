@@ -14,3 +14,8 @@ system_fail2ban_findtime: 600
 system_fail2ban_maxretry: 3
 system_fail2ban_backend: "auto"
 system_fail2ban_jails: {}
+
+# packages
+system_packages:
+  - vim
+  - htop

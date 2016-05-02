@@ -16,3 +16,8 @@
     - system
     - fail2ban
     - security
+
+- include: packages.yml
+  tags:
+    - system
+    - packages

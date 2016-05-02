@@ -1,0 +1,6 @@
+---
+- name: Install base packages
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items: "{{ system_packages }}"
