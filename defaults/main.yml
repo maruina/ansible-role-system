@@ -19,3 +19,13 @@ system_fail2ban_jails: {}
 system_packages:
   - vim
   - htop
+  - zlib1g-dev
+  - uuid-dev
+  - libmnl-dev
+  - gcc
+  - make
+  - git
+  - autoconf
+  - autogen
+  - automake
+  - pkg-config

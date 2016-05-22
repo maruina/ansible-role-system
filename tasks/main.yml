@@ -15,9 +15,13 @@
   tags:
     - system
     - fail2ban
-    - security
 
 - include: packages.yml
   tags:
     - system
     - packages
+
+- include: netdata.yml
+  tags:
+    - system
+    - netdata
